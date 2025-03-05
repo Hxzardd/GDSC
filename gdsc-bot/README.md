@@ -1,79 +1,58 @@
 # GDSC Bot
 
-GDSC Bot is a modular Discord bot featuring powerful utilities and interactive commands. It comes with a variety of features including:
+GDSC Bot is a feature-rich Discord bot designed for community engagement and productivity. It integrates several useful functions into a single, modular package, including:
 
-- **Reminders:** Set, modify, cancel, and view reminders.
-- **Polls:** Create, close, and view poll results.
-- **Gemini Chat:** Chat with an AI (Gemini) and get concise summaries.
-- **Welcome Messages:** Automatically welcome new members and customize the welcome channel/message.
-- **Music Playback:** Play, queue, skip, and adjust music from YouTube (or search by song name).
+- **Reminders:** Schedule and manage reminders with ease.
+- **Polls:** Create and run interactive polls.
+- **Gemini Chat:** Chat with an AI powered by Gemini for conversation and text summarization.
+- **Welcome Messages:** Automatically welcome new members with custom messages.
+- **Music Playback:** Play, queue, and control music streaming from YouTube, with additional options like bass boost and volume control.
 
-## Features Overview
-
-### Reminders
-- **!remind DD-MM-YYYY HH:MM message**  
-  Set a reminder for a future date and time.
-- **!modify \<index> DD-MM-YYYY HH:MM message**  
-  Modify an existing reminder.
-- **!cancelreminder [index]**  
-  Cancel a specific reminder or all reminders.
-- **!reminderslist**  
-  List all active reminders with human-friendly time left.
-
-### Polls
-- **!poll Question | Option1 | Option2 | ...**  
-  Create a poll with up to 10 options.
-- **!closepoll [poll_id]**  
-  Close your most recent (or specified) poll.
-- **!pollresults [poll_id]**  
-  Display the results of a poll.
-
-### Gemini Chat
-- **!chat Your message**  
-  Chat with the Gemini AI-powered bot.
-- **!summarize Text to summarize**  
-  Receive a concise summary of a long text.
-- **!forget**  
-  Clear the conversation history for the current channel.
-- *Also, the bot auto-responds to DMs or when mentioned (excluding commands).*
-
-### Welcome Messages
-- **!setwelcome #channel**  
-  Set the channel where new members will be welcomed.
-- **!editwelcome \<message>**  
-  Customize the welcome message.  
-  Use placeholders:  
-  - `{member}` for the new member mention  
-  - `{server}` for the server name  
-  *Example:* `!editwelcome Welcome {member} to {server}! Enjoy your stay.`
-- **!welcomesettings**  
-  View the current welcome settings.
-
-### Music Playback
-- **!join**  
-  Join the voice channel you are in.
-- **!leave**  
-  Disconnect from the voice channel.
-- **!play <url or song name>**  
-  Play audio from a URL or by searching YouTube.
-- **!enqueue <url>**  
-  Add a track to the queue.
-- **!queue**  
-  Display upcoming tracks in the queue.
-- **!pause / !resume**  
-  Pause or resume the current track.
-- **!skip**  
-  Skip the current track.
-- **!stop**  
-  Stop playback and clear the queue.
-- **!volume <0-100>**  
-  Set the playback volume.
-- **!bass <gain>**  
-  Set the bass boost level (use 0 to disable).
+This bot is built using discord.py (v2+) and employs a modular structure with separate cogs for each feature. All configuration and sensitive information is managed via environment variables.
 
 ## Setup Instructions
 
 ### 1. Clone the Repository
+Clone the repository to your local machine:
 ```bash
 git clone https://github.com/yourusername/gdsc-bot.git
 cd gdsc-bot
+```
+
+### 2. Create and Activate a Virtual Environment
+```bash
+python -m venv venv
+```
+Activate the virtual environment
+ - Windows:
+ ```bash
+venv\Scripts\activate
+```
+ - macOS/Linux:
+ ```bash
+ source venv/bin/activate
+ ```
+
+### 3. Install Required Dependencies
+Install all required packages using:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+Rename the provided `.env-sample` to `.env` and update it with your credentials:
+```bash
+DISCORD_BOT_TOKEN=YOUR_DISCORD_BOT_TOKEN
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+### 5. Set Up FFmpeg
+ - For Windows, follow https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/
+ - For Linux, follow https://www.geeksforgeeks.org/how-to-install-ffmpeg-in-linux/
+  - For macOS, follow https://phoenixnap.com/kb/ffmpeg-mac/
+
+### 6. Run the Bot
+Start the bot with:
+```bash
+python bot.py
+```
