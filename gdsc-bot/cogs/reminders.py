@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import asyncio
 from datetime import datetime, timedelta
-from utils import load_reminders, save_reminders, parse_reminder_time
+from utils.utils import load_reminders, save_reminders, parse_reminder_time
 
 class Reminders(commands.Cog):
     def __init__(self, bot):
