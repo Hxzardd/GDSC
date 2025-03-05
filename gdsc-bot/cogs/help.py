@@ -152,7 +152,7 @@ class Help(commands.Cog):
             inline=False
         )
         embed_music.add_field(
-            name="!stream <url>",
+            name="!play <url>",
             value="Play a track from a URL immediately (auto-joins if necessary).",
             inline=False
         )

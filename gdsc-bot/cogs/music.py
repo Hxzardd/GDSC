@@ -22,12 +22,12 @@ YTDL_OPTS = {
 
 # Default FFmpeg options.
 FFMPEG_DEFAULT_OPTS = {
-    'options': '-vn'
+    'options': '-vn -ar 48000 -ac 2 -b:a 192k'
 }
 
 ytdl = youtube_dl.YoutubeDL(YTDL_OPTS)
 
-class AudioSource(discord.PCMVolumeTransformer):
+class YTDL(discord.PCMVolumeTransformer):
     def __init__(self, source, *, info, volume: float = 0.5):
         super().__init__(source, volume)
         self.info = info
@@ -93,7 +93,7 @@ class Music(commands.Cog):
 
         async with ctx.typing():
             try:
-                source = await AudioSource.create_source(url, stream=True, ffmpeg_opts=self.ffmpeg_opts)
+                source = await YTDL.create_source(url, stream=True, ffmpeg_opts=self.ffmpeg_opts)
             except Exception as e:
                 await ctx.send("Failed to extract audio. Please check your URL and try again.")
                 print(e)
