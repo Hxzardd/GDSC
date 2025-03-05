@@ -1,3 +1,3 @@
-gdsc-bot/.env
-gdsc-bot/__pycache__/
-gdsc-bot/cogs/__pycache__/
+bot/.env
+bot/__pycache__/
+bot/cogs/__pycache__/
