@@ -15,7 +15,7 @@ This bot is built using discord.py (v2+) and employs a modular structure with se
 ### 1. Clone the Repository
 Clone the repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/gdsc-bot.git
+git clone https://github.com/Hxzardd/GDSC.git
 cd gdsc-bot
 ```
 
