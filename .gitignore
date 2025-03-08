@@ -1,2 +1,4 @@
-*.env
-*__pycache__
+bot/.env
+bot/__pycache__/
+bot/cogs/__pycache__/
+bot/__pycache/
