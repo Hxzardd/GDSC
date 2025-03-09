@@ -44,7 +44,9 @@ class Reminders(commands.Cog):
         if user_key not in self.reminder_data:
             self.reminder_data[user_key] = []
         index = len(self.reminder_data[user_key])
+
         task = asyncio.create_task(self.handle_reminder(ctx.author.id, time_seconds, message, ctx.channel, index))
+        
         self.reminders.setdefault(user_key, {})[index] = task
         self.reminder_data[user_key].append({
             "time": time_seconds,
