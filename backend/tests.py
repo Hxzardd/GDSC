@@ -5,11 +5,11 @@ BASE_URL = "http://localhost:5000"
 def pause():
     input("\nPress Enter to continue to the next test...")
 
-def print_separator():
+def print_new_lines():
     print("=" * 50)
 
 def test_add_books():
-    print_separator()
+    print_new_lines()
     print(">> Testing: Add Multiple Books")
     books_to_add = [
         {
@@ -50,38 +50,38 @@ def test_add_books():
         response = requests.post(f"{BASE_URL}/books", json=book)
         print(f"Added book '{book['title']}' - Status Code: {response.status_code}")
         print("Response:", response.json())
-    print_separator()
+    print_new_lines()
 
 def test_get_books():
-    print_separator()
+    print_new_lines()
     print(">> Testing: Get All Books")
     response = requests.get(f"{BASE_URL}/books")
     print("Status Code:", response.status_code)
     print("Response:", response.json())
 
 def test_get_book(isbn):
-    print_separator()
+    print_new_lines()
     print(f">> Testing: Get Book by ISBN: {isbn}")
     response = requests.get(f"{BASE_URL}/books/{isbn}")
     print("Status Code:", response.status_code)
     print("Response:", response.json())
 
 def test_search_books(query):
-    print_separator()
+    print_new_lines()
     print(f">> Testing: Search Books by query: '{query}'")
     response = requests.get(f"{BASE_URL}/books?search={query}")
     print("Status Code:", response.status_code)
     print("Response:", response.json())
 
 def test_update_book(isbn, payload):
-    print_separator()
+    print_new_lines()
     print(f">> Testing: Update Book with ISBN: {isbn}")
     response = requests.put(f"{BASE_URL}/books/{isbn}", json=payload)
     print("Status Code:", response.status_code)
     print("Response:", response.json())
 
 def test_delete_book(isbn):
-    print_separator()
+    print_new_lines()
     print(f">> Testing: Delete Book with ISBN: {isbn}")
     response = requests.delete(f"{BASE_URL}/books/{isbn}")
     print("Status Code:", response.status_code)
@@ -125,5 +125,5 @@ if __name__ == '__main__':
     
     # Show final list of books
     test_get_books()
-    print_separator()
+    print_new_lines()
     print("All tests completed!")
